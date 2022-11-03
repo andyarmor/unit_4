@@ -43,7 +43,7 @@ def de_vowel(a_sentence):
      VOWELS = 'aeiou'
      no_vowel_sentence = ""
      for letter in a_sentence:
-         if letter not in a_sentence:
+         if letter not in VOWELS:
              no_vowel_sentence +=letter
      return no_vowel_sentence
 
@@ -58,11 +58,10 @@ def count_vowels(a_sentence):
 
 # print the sentence without vowels
 VOWELS = 'aeiou'
-a_sentence = ""
 the_sentence = input("What sentence do you want to de-vowel? ")
 
 print(f"There are {count_vowels(the_sentence)} vowels in your sentence")
 print()
-print(f"Here's your sentence without vowels: {de_vowel(a_sentence)}")
+print(f"Here's your sentence without vowels: {de_vowel(the_sentence)}")
 
 

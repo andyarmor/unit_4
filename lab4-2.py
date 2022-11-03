@@ -115,8 +115,6 @@ pluralize_words(word_list2)
 print(f"No longer singular words: {word_list2}")
 
 
-
-
 #Part2
 def my_reverse(string_to_reverse):
     strIndex = len(string_to_reverse)

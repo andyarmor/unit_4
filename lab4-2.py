@@ -99,10 +99,16 @@ The function will reverse the strings in the list by calling the my_reverse func
 def pluralize_words(word_list):
     word_index = 0
     for word in word_list:
-        word = word+ 's'
-        print(word)
-        word_list[word_index] = word
-        word_index +=1
+        if word[-1] != 'y':
+            word = word + 's'
+            print(word)
+            word_list[word_index] = word
+            word_index +=1
+        else:
+            word = word + 'ies'
+            print(word)
+            word = word_list[word_index] 
+            word_index +=1
         
 
 word_list = ['apple', 'berry', 'melon']

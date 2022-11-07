@@ -117,6 +117,7 @@ pluralize_words(word_list)
 print(f"No longer singular words: {word_list}")
 
 word_list2 = ['game', 'football', 'soda']
+print(f"Singular words: {word_list2}")
 pluralize_words(word_list2)
 print(f"No longer singular words: {word_list2}")
 

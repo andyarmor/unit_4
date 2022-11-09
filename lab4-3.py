@@ -80,10 +80,9 @@ For each of the following problems, you will write a function that will draw the
         *****
     
 '''
-user_answer = input("What would you like to do? (draw_7, stars_and_stripes, increasing_triangle, vertical_stars_and_stripes, made_up)")
 #1
 def draw_7():
-    #prints 6 row
+    #prints 7 row
     for j in range(0,7):
         my_string = ''
         for i in range(0,6):
@@ -94,19 +93,48 @@ def draw_7():
 
 #2
 def stars_and_stripes():
-    star = ''
     for i in range(0,7):
-        star += ' *'
+        print()
         for j in range(0,7):
-            dash = ''
-
-    print(star)
+            if i ==1:
+                print(' *', end='')
+            if i ==2:
+                print(' -', end='')
+            if i ==3:
+                print(' *', end='')
+            if i == 4:
+                print(' -', end='')
+            if i == 5:
+                print(' *', end='')
+            if i == 6:
+                print(' -', end='')
+                
     
 
 #3
 def increasing_triangle():
+    num = 1
+    for i in range(0,8):
+        print()
+        for j in range(0,1):
+            if i == 1:
+                print("1")
+            elif i == 2:
+                print("1 2")
+            elif i == 3:
+                print("1 2 3")
+            elif i == 4:
+                print("1 2 3 4")
+            elif i == 5:
+                print("1 2 3 4 5") 
+            elif i == 6:
+                print("1 2 3 4 5 6 ")
+            elif i == 7:
+                print("1 2 3 4 5 6 7")   
+                print()
+            
+
     
-    pass
 
 #4 
 def vertical_stars_and_stripes():
@@ -118,16 +146,24 @@ def made_up():
 
     pass
 
-if user_answer == 'draw_7':
-    draw_7()
-elif user_answer == 'stars_and_stripes':
-    stars_and_stripes()
-elif user_answer == 'increasing_triangle':
-    increasing_triangle()
-elif user_answer == 'vertical_stars_and_stripes':
-    vertical_stars_and_stripes()
-elif user_answer == 'made_up':
-    made_up()
+
+while True:
+
+    user_answer = input("What would you like to do? (draw_7, stars_and_stripes, increasing_triangle, vertical_stars_and_stripes, made_up)")
+
+    if user_answer == 'draw_7':
+        draw_7()
+    elif user_answer == 'stars_and_stripes':
+        stars_and_stripes()
+    elif user_answer == 'increasing_triangle':
+        increasing_triangle()
+    elif user_answer == 'vertical_stars_and_stripes':
+        vertical_stars_and_stripes()
+    elif user_answer == 'made_up':
+        made_up()
+    else:
+        print('')
+        print("That is not an option ")
 
 
     

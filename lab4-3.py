@@ -113,7 +113,6 @@ def stars_and_stripes():
 
 #3
 def increasing_triangle():
-    num = 1
     for i in range(0,8):
         print()
         for j in range(0,1):
@@ -138,18 +137,27 @@ def increasing_triangle():
 
 #4 
 def vertical_stars_and_stripes():
+    for i in range(0,7):
+        print()
+        for j in range(0,6):
+            if j % 2:
+                print(' *', end='')
+            else:
+                print(' -', end='')
 
-    pass
 
 #5 
 def made_up():
-
-    pass
+    for j in range(0,3): #loop 6 times
+        my_string = ''
+        for i in range(0,7):
+            my_string += ' $'
+        print(my_string)
 
 
 while True:
 
-    user_answer = input("What would you like to do? (draw_7, stars_and_stripes, increasing_triangle, vertical_stars_and_stripes, made_up)")
+    user_answer = input("What would you like to do? (draw_7, stars_and_stripes, increasing_triangle, vertical_stars_and_stripes, dollar_bill)")
 
     if user_answer == 'draw_7':
         draw_7()
@@ -159,7 +167,7 @@ while True:
         increasing_triangle()
     elif user_answer == 'vertical_stars_and_stripes':
         vertical_stars_and_stripes()
-    elif user_answer == 'made_up':
+    elif user_answer == 'dollar_bill':
         made_up()
     else:
         print('')

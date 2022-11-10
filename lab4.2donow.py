@@ -7,9 +7,9 @@
 
 def print_star_square():
     #prints 6 row
-    for j in range(0,6): #loop 6 times
+    for j in range(0,3): #loop 6 times
         my_string = ''
-        for i in range(0,6):
-            my_string += ' *'
+        for i in range(0,7):
+            my_string += ' $'
         print(my_string)
 print_star_square()

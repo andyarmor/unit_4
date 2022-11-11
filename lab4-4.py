@@ -81,22 +81,50 @@ Write a function to reverse the order of the lists, and also reverse the order o
 
 The new reversed list should look like the following when printed (newlines and spacing added for clarity):
 '''
-def update_list():
-    
 
-    pass
+def update_list():
+    which_list_answer = input("Which shopping list would you like to update? ")
+    which_item = input("Which item would you like to change? ")
+    updated_item = input(f"New value for item {which_item}? ")
+    if which_list_answer == 1:
+        which_list = shopping_lists[0]
+        print(which_list)
+    elif which_list_answer == 2:
+        which_list = shopping_lists[1]
+    elif which_list_answer == 3:
+        which_list = shopping_lists[2]
+
+    if which_item == 1:
+        which_list.remove(shopping_lists[0][1])
+    elif which_item == 2:
+        pass
+    elif which_item == 3:
+        pass
 
 def print_item():
+    print("Hello")
 
-    pass
+    
 
 def print_list():
 
     pass
 
-user_input = input("What would you like to do? (update, view item, view list)")
+
+user_input = input("Choose one: 1 = update item,  2 = view item  3 = view list: ")
 shopping_lists = [['toothpaste', 'q-tips', 'milk'],['milk', 'candy', 'apples'],['planner', 'pencils', 'q-tips']]
-print(shopping_lists[2][0])
+while True:
+    
+    if user_input == 1:
+        update_list()
+    elif user_input == 2:
+        print_item()
+    elif user_input == 3:
+        print_list()
+
+
+
+#print(shopping_lists[2][0])
 
 
 

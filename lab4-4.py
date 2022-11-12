@@ -81,50 +81,42 @@ Write a function to reverse the order of the lists, and also reverse the order o
 
 The new reversed list should look like the following when printed (newlines and spacing added for clarity):
 '''
+user_input = input("Would you like to update item, view item or view list? ")
+shopping_lists = [['toothpaste', 'q-tips', 'milk'],['milk', 'candy', 'apples'],['planner', 'pencils', 'q-tips']]
 
 def update_list():
-    which_list_answer = input("Which shopping list would you like to update? ")
-    which_item = input("Which item would you like to change? ")
-    updated_item = input(f"New value for item {which_item}? ")
-    if which_list_answer == 1:
-        which_list = shopping_lists[0]
-        print(which_list)
-    elif which_list_answer == 2:
-        which_list = shopping_lists[1]
-    elif which_list_answer == 3:
-        which_list = shopping_lists[2]
+    user_list_input = int(input("Which list which you like to update? "))
+    user_item_input = int(input("Which item which you like to update? "))
+    userupdatevalue = input("What would you like the new value to be? ")
+    shopping_lists[user_list_input-1][user_item_input-1] = userupdatevalue
+    input(shopping_lists[user_list_input-1])
 
-    if which_item == 1:
-        which_list.remove(shopping_lists[0][1])
-    elif which_item == 2:
-        pass
-    elif which_item == 3:
-        pass
-
-def print_item():
-    print("Hello")
+def view_item():
+    user_list_input = int(input("Which list which you like to view? "))
+    user_item_input = int(input("Which item which you like to view? "))
+    print(shopping_lists[user_list_input-1][user_item_input-1])
 
     
 
-def print_list():
-
-    pass
-
-
-user_input = input("Choose one: 1 = update item,  2 = view item  3 = view list: ")
-shopping_lists = [['toothpaste', 'q-tips', 'milk'],['milk', 'candy', 'apples'],['planner', 'pencils', 'q-tips']]
-while True:
+def view_list():
+    user_list_input = int(input("Which list which you like to view? "))
+    input(shopping_lists[user_list_input-1])
     
-    if user_input == 1:
-        update_list()
-    elif user_input == 2:
-        print_item()
-    elif user_input == 3:
-        print_list()
+
+
+    
+if user_input == "update item":
+    update_list()
+elif user_input == "view item":
+    view_item()
+elif user_input == "view list":
+    view_list()
+else:
+    print("This is not a command! ")
 
 
 
-#print(shopping_lists[2][0])
+
 
 
 

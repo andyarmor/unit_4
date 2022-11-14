@@ -80,40 +80,111 @@ Extension
 Write a function to reverse the order of the lists, and also reverse the order of the items in each list, in the shopping_cart nested list.
 
 The new reversed list should look like the following when printed (newlines and spacing added for clarity):
+shopping_cart = [
+        ['q-tips', 'pencils', 'planner'],
+        ['apples', 'candy', 'milk'],
+        ['milk', 'q-tips', 'tooth paste']
+    ]
+Tip
+Last item can be gotten by my_list[-1]
+
+Second to last element: my_list[-2]
+
+Third to last element: my_list[-3]
 '''
-user_input = input("Would you like to update item, view item or view list? ")
+part1or2 = input("WOuld you like to play part 1,2, or 3? ")
 shopping_lists = [['toothpaste', 'q-tips', 'milk'],['milk', 'candy', 'apples'],['planner', 'pencils', 'q-tips']]
+if part1or2 == '1':
+    user_input = input("Would you like to update item, view item or view list? ")
 
-def update_list():
-    user_list_input = int(input("Which list which you like to update? "))
-    user_item_input = int(input("Which item which you like to update? "))
-    userupdatevalue = input("What would you like the new value to be? ")
-    shopping_lists[user_list_input-1][user_item_input-1] = userupdatevalue
-    input(shopping_lists[user_list_input-1])
+    def update_list():
+        user_list_input = int(input("Which list which you like to update? "))
+        user_item_input = int(input("Which item which you like to update? "))
+        userupdatevalue = input("What would you like the new value to be? ")
+        shopping_lists[user_list_input-1][user_item_input-1] = userupdatevalue
+        input(shopping_lists[user_list_input-1])
 
-def view_item():
-    user_list_input = int(input("Which list which you like to view? "))
-    user_item_input = int(input("Which item which you like to view? "))
-    print(shopping_lists[user_list_input-1][user_item_input-1])
-
-    
-
-def view_list():
-    user_list_input = int(input("Which list which you like to view? "))
-    input(shopping_lists[user_list_input-1])
-    
-
+    def view_item():
+        user_list_input = int(input("Which list which you like to view? "))
+        user_item_input = int(input("Which item which you like to view? "))
+        print(shopping_lists[user_list_input-1][user_item_input-1])
 
     
-if user_input == "update item":
-    update_list()
-elif user_input == "view item":
-    view_item()
-elif user_input == "view list":
-    view_list()
-else:
-    print("This is not a command! ")
 
+    def view_list():
+        user_list_input = int(input("Which list which you like to view? "))
+        input(shopping_lists[user_list_input-1])
+
+    if user_input == "update item":
+        update_list()
+    elif user_input == "view item":
+        view_item()
+    elif user_input == "view list":
+        view_list()
+    else:
+        print("This is not a command! ")
+
+
+elif part1or2 == '2':
+    user_number = input("pick a number between 1-4: ")
+
+    #part 2 functions
+    def all_in_one():
+        new_list = []
+        for i in range(len(shopping_lists)):
+            for j in range(len(shopping_lists[i])):
+                new_list.append(shopping_lists[i][j])
+        print(new_list)
+
+
+    def count_q_tips():
+        q_tip_count = 0
+        for i in range(len(shopping_lists)):
+            for j in range(len(shopping_lists[i])):
+                if shopping_lists[i][j] == 'q-tips':
+                    q_tip_count +=1
+        print(q_tip_count)
+
+    def drink_more_milk():
+        for i in range(len(shopping_lists)):
+            milk_count = 0
+            for j in range(len(shopping_lists[i])):
+                if 'milk' in shopping_lists[i][j]:
+                    milk_count +=1
+            if milk_count == 0:
+                shopping_lists[i].append('milk')
+        print(shopping_lists)
+                
+    def if_you_give_a_moose_a_cookie():
+    
+        for i in range(len(shopping_lists)):
+            for j in range(len(shopping_lists[i])):
+                if shopping_lists[i][j] == 'milk':
+                    shopping_lists[i][j] = 'milk and cookies'
+
+        print(shopping_lists)
+
+    if user_number == '1':
+        print("printing all in one:")
+        print('')
+        all_in_one()
+    elif user_number == '2':
+        print("printing count q tips: ")
+        print('')
+        count_q_tips()
+    elif user_number == '3': 
+        print("printing drink more milk: ")
+        print('')
+        drink_more_milk()
+    elif user_number == '4':
+        print("printing if you give a moose a cookie: ")
+        print('')
+        if_you_give_a_moose_a_cookie()
+
+    
+elif part1or2 == '3':
+    print("We are going to reverse your shopping cart ")
+    shopping_lists.reverse
 
 
 

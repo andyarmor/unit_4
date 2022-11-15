@@ -183,8 +183,19 @@ elif part1or2 == '2':
 
     
 elif part1or2 == '3':
+    print()
     print("We are going to reverse your shopping cart ")
-    shopping_lists.reverse
+    def my_reverse(string_to_reverse):
+        strIndex = len(string_to_reverse)
+        newStr = []
+        while strIndex > 0: 
+            #print(string_to_reverse[strIndex-1])
+            newStr +=string_to_reverse[strIndex-1]
+            strIndex -= 1
+        return newStr
+
+reversed = my_reverse(shopping_lists)
+print(reversed)
 
 
 

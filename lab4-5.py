@@ -38,14 +38,14 @@ def print_numbers(list):
         print(list[i])
 
 def swapping_stars():
-    line_str = ""
     for line in range(0, 6):
-        for char in range(0,6):
-            if char % 2:
+        line_str = ""
+        for character in range(0, 6):
+            if character % 2 == line % 2:
                 line_str += "*"
             else:
                 line_str += "-"
-    print(line_str)
+        print(line_str)
 
 
 #game loop

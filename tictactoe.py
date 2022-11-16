@@ -16,6 +16,9 @@ def print_board():
         else:
             print(row_count)
         
+
+player_1 = input("Player 1, what is your name? ")
+player_2 = input("Player 2, what is your name? ")
 turn = 1
 player_symbol = ""
 print_board()

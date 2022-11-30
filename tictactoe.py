@@ -1,7 +1,7 @@
 board = [[' ',' ',' '], [' ',' ',' '], [' ', ' ', ' ']]
 player_1 = input("Player 1, what is your name? ")
-player_1_symbol = 'X'
 player_2 = input("Player 2, what is your name? ")
+player_1_symbol = 'X'
 player_2_symbol = 'O'
 gamecount = 0
 player_symbol = ""
@@ -25,12 +25,8 @@ def print_board():
             row_count +=1
         else:
             print(row_string)
-
-def check_tied(board):
-
-    pass
-        
-def make_move(board, name, symbol):
+ 
+def make_move(name, symbol):
     valid_move = False
     while not valid_move:
         print(f"{name}, where would you like your marker?")
@@ -50,60 +46,62 @@ def player_winner(pl_symbol):
 
 def end_game():
     #horizontal win
+    global playing
     for row in board:
         if row[0] == row[1] == row[2]:
+            print("Game over")
             player_winner(row[0])
-            Playing = False
+            playing = False
     #vertical win
     if board[0][0] == board[1][0] == board[2][0]:
-        if row[0] == row[1] == row[2]:
-            player_winner(board[0][0])
-            playing = False
+        print("Game over")
+        playing =False
     elif board[0][1] == board[1][1] == board[2][1]:
-        if row[0] == row[1] == row[2]:
-            player_winner(board[0][0])
-            
+        print("Game over")
+        playing = False
     elif board[0][2] == board[1][2] == board[2][2]:
-        if row[0] == row[1] == row[2]:
-            player_winner(board[0][0])
+        print("Game over")
+        playing = False
     #diagonal win
     if board[0][0] == board[1][1] == board[2][2] or board[0][2] == board[1][1] == board[2][0]:
-        player_winner(board[1][1])
+        print("Game over")
         playing = False
 
+    # full board for tie?
+
+def reset_board():
+    global board
+    board = [[' ',' ',' '], [' ',' ',' '], [' ', ' ', ' ']]
+    print_board()
 
 
-
-    #winner = ''
-
-    # for i in range(3):
-    #     if board[i][0] == board[i][1] and board[i][1] == board[i][2]:
-    #         winner = board[i][0]
-    #     elif board[0][i] == board[1][i] and board[1][i] == board[2][i]:
-    #         winner = board[0][i]
-    # if board[0][0] == board[1][1] and board[1][1] == board[2][2]:
-    #     winner = board[0][0]
-    # elif board[0][2] == board[1][1] and board[1][1] == board [2][0]:
-    #     winner = board[0][2]
-
-    # return winner
 
     
 
-while Playing == True:
+    
+
+while Playing:
+
     print("The current gameboard is: ")
     print_board()
 
-    make_move(board, player_1, player_1_symbol)
-    #winner = check_winner(board)
-    #if winner != '':
-        #print(f"{winner} has won this game, lets play again!")
-        #break
+    make_move(player_1, player_1_symbol)
 
-    make_move(board, player_2, player_2_symbol)
+    print("The current gameboard is: ")
+    print_board()
+    make_move(player_2, player_2_symbol)
 
     end_game()
-    #winner = check_winner(board)
-    #if winner != ' ':
-        #print(f"{winner} has won this game, lets play again!")
-        #break
+    
+
+while True:
+    user_input = input("Would you like to play again? (y/n)")
+    if user_input == 'y':
+        print("Playing again...")
+        reset_board()
+        break
+    elif user_input == 'n':
+        print("See you later")
+        playing = False
+        break
+

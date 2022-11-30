@@ -1,4 +1,4 @@
-board = [['','',''], ['','',''], ['', '', '']]
+board = [[' ',' ',' '], [' ',' ',' '], [' ', ' ', ' ']]
 player_1 = input("Player 1, what is your name? ")
 player_2 = input("Player 2, what is your name? ")
 player_1_symbol = 'X'
@@ -22,7 +22,7 @@ def print_board():
                 row_string +=str(row[i])
         if row_count < 3: 
             print(row_string)
-            print('------')
+            print('--------')
             row_count +=1
         else:
             print(row_string)
@@ -33,59 +33,46 @@ def make_move(name, symbol):
         print(f"{name}, where would you like your marker?")
         player_column = int(input(" Enter a column 1-3: "))
         player_row = int(input(" Enter a row 1-3: "))
-        if board[player_row -1][player_column-1] == '':
+        if board[player_row -1][player_column-1] == ' ':
             board[player_row -1][player_column-1] = symbol
             valid_move = True
         if not valid_move:
             print("Not a valid move, pick somewhere else")
 
-# def player_winner(pl_symbol):
-#     if pl_symbol == 'X':
-#         print(f"Congrats {player_1}!")
-#     else:
-#         print(f"Congrats {player_2}!")
+def player_winner(pl_symbol):
+    if pl_symbol == 'X':
+        print(f"Congrats {player_1}!")
+    else:
+        print(f"Congrats {player_2}!")
 
 def end_game(board):
 
-    game_winner = ''
-    
-    if board[0][0] == board[0][1] and board[0][1] == board[0][2]:
-        game_winner = board[0][0]
-    elif board[0][0] == board[1][0] and board[1][0] == board[2][0]:
-        game_winner = board[0][0]
-    if board[0][0] == board[1][1] and board[1][1] == board[2][2]:
-        game_winner = board[0][0]
-    elif board[0][2] == board[1][1] and board[1][1] == board[2][0]:
-        game_winner = board[0][2]
-    return game_winner
-
     #horizontal win
-    # global playing
-    # for row in board:
-    #     if row[0] == row[1] == row[2]:
-    #         print("Game over")
-    #         player_winner(row[0])
-    #         playing = False
-    # #vertical win
-    # if board[0][0] == board[1][0] == board[2][0]:
-    #     print("Game over")
-    #     playing =False
-    # elif board[0][1] == board[1][1] == board[2][1]:
-    #     print("Game over")
-    #     playing = False
-    # elif board[0][2] == board[1][2] == board[2][2]:
-    #     print("Game over")
-    #     playing = False
-    # #diagonal win
-    # if board[0][0] == board[1][1] == board[2][2] or board[0][2] == board[1][1] == board[2][0]:
-    #     print("Game over")
-    #     playing = False
+    global playing
+    for row in board:
+        if row[0] == row[1] == row[2]:
+            player_winner(row[0])
+            playing = False
+    #vertical win
+    if board[0][0] == board[1][0] == board[2][0]:
+        player_winner(row[0])
+        playing =False
+    elif board[0][1] == board[1][1] == board[2][1]:
+        player_winner(row[0])
+        playing = False
+    elif board[0][2] == board[1][2] == board[2][2]:
+        player_winner(row[0])
+        playing = False
+    #diagonal win
+    if board[0][0] == board[1][1] == board[2][2] or board[0][2] == board[1][1] == board[2][0]:
+        player_winner(row[0])
+        playing = False
 
-    # full board for tie?
+    #full board for tie?
 
 def reset_board():
     global board
-    board = [['','',''], ['','',''], ['', '', '']]
+    board = [[' ',' ',' '], [' ',' ',' '], [' ', ' ', ' ']]
     print_board()
 
 def checkTied(board):
@@ -105,20 +92,12 @@ while Playing:
     make_move(player_1, player_1_symbol)
     print("The current gameboard is: ")
     print_board()
-    winner = end_game(board)
-    if winner != '':
-        print(f"{winner} has won the game! ")
-        break
 
     gameTied = checkTied(board)
 
     make_move(player_2, player_2_symbol)
     print("The current gameboard is: ")
     print_board()
-    winner = end_game(board) 
-    if winner != '':
-        print(f"{winner} has won the game! ")
-        break
 
     gameTied = checkTied(board)
 
@@ -134,4 +113,3 @@ while True:
         print("See you later")
         playing = False
         break
-

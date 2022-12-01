@@ -39,12 +39,6 @@ def make_move(name, symbol):
         if not valid_move:
             print("Not a valid move, pick somewhere else")
 
-# def player_winner(pl_symbol):
-#     if pl_symbol == 'X':
-#         print(f"Congrats {player_1}!")
-#     else:
-#         print(f"Congrats {player_2}!")
-
 def end_game(board):
 
     game_winner = ''
@@ -59,29 +53,6 @@ def end_game(board):
         game_winner = board[0][2]
     return game_winner
 
-    #horizontal win
-    # global playing
-    # for row in board:
-    #     if row[0] == row[1] == row[2]:
-    #         print("Game over")
-    #         player_winner(row[0])
-    #         playing = False
-    # #vertical win
-    # if board[0][0] == board[1][0] == board[2][0]:
-    #     print("Game over")
-    #     playing =False
-    # elif board[0][1] == board[1][1] == board[2][1]:
-    #     print("Game over")
-    #     playing = False
-    # elif board[0][2] == board[1][2] == board[2][2]:
-    #     print("Game over")
-    #     playing = False
-    # #diagonal win
-    # if board[0][0] == board[1][1] == board[2][2] or board[0][2] == board[1][1] == board[2][0]:
-    #     print("Game over")
-    #     playing = False
-
-    # full board for tie?
 
 def reset_board():
     global board
